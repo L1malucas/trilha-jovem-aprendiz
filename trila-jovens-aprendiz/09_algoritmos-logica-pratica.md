@@ -826,6 +826,142 @@ Saída:
 190
 ```
 
+## Laboratórios
+
+Os 10 laboratórios abaixo complementam os 35 exercícios acima, focando em habilidades específicas
+de raciocínio algorítmico (pseudocódigo, fluxogramas, table trace, busca e ordenação) que os
+exercícios temáticos não cobrem isoladamente. Mesma regra de sempre: sem métodos/funções
+embutidos que resolvam o problema por você.
+
+### Laboratório 59 — Pseudocódigo
+
+Antes de qualquer código, o pseudocódigo é onde o raciocínio se organiza. Escreva o
+**pseudocódigo completo** (não pule pro C++ direto) para o seguinte problema, e só depois
+implemente:
+
+> Dado um número inteiro `N`, determine se ele é primo. Um número é primo se for maior que 1 e
+> divisível apenas por 1 e por ele mesmo.
+
+Entrada: `N` (`2 <= N <= 100000`). Saída: `"Primo"` ou `"Nao primo"`.
+
+**Critério de aceite:** o pseudocódigo aparece como comentário completo antes do código, com pelo
+menos os passos de inicialização, o laço de verificação de divisores, e a decisão final — não
+vale um pseudocódigo genérico de uma linha só.
+
+### Laboratório 60 — Fluxogramas
+
+Represente em texto/ASCII um fluxograma (usando caixas `[ ]` para processos, `< >` para decisões,
+e setas `-->`) para o problema clássico "par ou ímpar": ler um número e dizer se é par ou ímpar.
+Depois, implemente o código correspondente e confira que ele segue exatamente o fluxo desenhado.
+
+**Critério de aceite:** o fluxograma tem início, pelo menos uma decisão, dois caminhos de saída
+(par/ímpar) e fim — e o código implementado segue esse fluxo linha a linha.
+
+### Laboratório 61 — Estruturas de decisão
+
+Classifique um aluno em uma de 5 categorias, usando condições aninhadas e compostas:
+
+> Dada uma nota final `N` (`0 <= N <= 10`) e uma frequência `F` (`0 <= F <= 100`, em
+> porcentagem), classifique o aluno: `"Reprovado por falta"` se `F < 75`; senão, `"Aprovado com
+> excelência"` se `N >= 9`; `"Aprovado"` se `N >= 6`; `"Recuperacao"` se `N >= 4`; `"Reprovado por
+> nota"` caso contrário.
+
+**Critério de aceite:** usa `if`/`else if` encadeados (não vários `if` independentes que poderiam
+disparar juntos), e a condição de frequência é verificada antes de qualquer outra.
+
+### Laboratório 62 — Loops aninhados
+
+Imprima uma tabuada completa de 1 a 10 (10 linhas, 10 colunas), onde a célula na linha `i` coluna
+`j` mostra `i * j`, alinhado em colunas de largura fixa (use espaços para alinhar números de 1 e
+2 dígitos).
+
+**Critério de aceite:** usa dois laços aninhados (um para linha, um para coluna), sem calcular a
+tabuada inteira antes de imprimir — cada valor é calculado e impresso durante o laço.
+
+### Laboratório 63 — Arrays
+
+Dado um array de `N` inteiros (`1 <= N <= 100`), inverta a ordem dos elementos **no próprio
+array**, sem criar um segundo array nem usar `std::reverse()`.
+
+Entrada: `N`, seguido de `N` inteiros. Saída: os `N` inteiros na ordem invertida.
+
+**Critério de aceite:** a inversão troca elementos de posição dentro do próprio array (dica:
+trocar o primeiro com o último, o segundo com o penúltimo, e assim por diante, parando na
+metade).
+
+### Laboratório 64 — Funções
+
+Decomponha o seguinte problema em pelo menos 3 funções auxiliares, cada uma com uma única
+responsabilidade — não resolva tudo dentro de `main()`:
+
+> Dado um array de `N` inteiros, calcule e imprima: a soma de todos os elementos, a média, e
+> quantos elementos estão acima da média.
+
+Sugestão de decomposição: uma função para somar, uma para calcular a média (chamando a de somar),
+e uma para contar os acima da média (chamando a de calcular a média).
+
+**Critério de aceite:** existem pelo menos 3 funções nomeadas, cada uma com um único propósito
+claro, e `main()` só orquestra as chamadas — não faz o cálculo diretamente.
+
+### Laboratório 65 — Debugging
+
+O código abaixo tem um **bug lógico** (compila e roda sem erro, mas dá resultado errado em alguns
+casos) — não é erro de sintaxe. Faça o table trace/dry run (visto na teoria) com a entrada `5, 3,
+8, 1, 9` buscando o maior valor, encontre onde o raciocínio quebra, e corrija:
+
+```cpp
+int maior = 0;  // bug proposital: e se todos os valores forem negativos?
+for (int i = 0; i < n; i++) {
+    if (v[i] > maior) {
+        maior = v[i];
+    }
+}
+```
+
+**Critério de aceite:** a resposta documenta o table trace (valor de `maior` e `i` a cada
+iteração) mostrando exatamente por que o bug aparece com entradas negativas, antes de mostrar a
+correção (inicializar `maior` com `v[0]`, não com `0`).
+
+### Laboratório 66 — Busca
+
+Dado um array de `N` inteiros **ordenado** (`1 <= N <= 1000`) e um valor `X` a procurar,
+implemente **busca linear** e **busca binária** manualmente (sem `std::find()` nem
+`std::binary_search()`), e para cada uma, conte quantas comparações foram feitas até achar (ou
+concluir que não existe) o valor `X`.
+
+Entrada: `N`, os `N` inteiros ordenados, e `X`. Saída: posição encontrada (ou `-1`) e número de
+comparações, para as duas buscas.
+
+**Critério de aceite:** rode com um array de pelo menos 20 elementos e compare o número de
+comparações das duas buscas — a busca binária deve fazer visivelmente menos comparações.
+
+### Laboratório 67 — Ordenação
+
+Implemente **bubble sort** e **selection sort** manualmente (sem `std::sort()`) sobre o mesmo
+array pequeno (5-8 elementos), narrando (como comentário no código ou como saída impressa) cada
+troca realizada em cada algoritmo.
+
+**Critério de aceite:** as duas implementações chegam ao mesmo array ordenado, e a narração das
+trocas deixa visível a diferença de abordagem entre os dois algoritmos (bubble sort compara pares
+adjacentes repetidamente; selection sort busca o menor e o coloca na posição certa a cada
+passada).
+
+### Laboratório 68 — Desafio final de algoritmos
+
+Combine busca, ordenação e funções auxiliares num problema só:
+
+> Uma competição de e-sports registrou os placares de `N` jogadores (`1 <= N <= 50`) em uma
+> lista. Ordene os jogadores por placar (do maior pro menor) usando um dos algoritmos de
+> ordenação implementados antes, e depois, dado um placar `X` buscado pelo público, informe em
+> qual posição do ranking (já ordenado) esse placar apareceria, usando busca binária.
+
+Entrada: `N`, os `N` placares, e `X`. Saída: o ranking ordenado (do maior pro menor), seguido da
+posição onde `X` se encaixaria.
+
+**Critério de aceite:** reaproveita as funções de ordenação e busca dos laboratórios 66 e 67 (não
+reimplementa do zero), e trata corretamente o caso de `X` já existir no ranking versus `X` ser um
+valor novo que precisaria ser inserido.
+
 ## Critérios de entrega
 
 - Todos os 35 exercícios em C++, compilados com `g++` (mesma ferramenta do módulo 08).
@@ -873,4 +1009,14 @@ Saída:
 - [ ] 33. Energia de Aceleração — resolvido.
 - [ ] 34. Pentatlo — resolvido.
 - [ ] 35. Fortalecimento de clima — resolvido.
+- [ ] Laboratório 59 (Pseudocódigo) — resolvido, pseudocódigo completo antes do código.
+- [ ] Laboratório 60 (Fluxogramas) — resolvido, fluxograma em ASCII condizente com o código.
+- [ ] Laboratório 61 (Estruturas de decisão) — resolvido com `if`/`else if` encadeados na ordem certa.
+- [ ] Laboratório 62 (Loops aninhados) — resolvido com dois laços aninhados, valores alinhados.
+- [ ] Laboratório 63 (Arrays) — resolvido invertendo o array in-place, sem `std::reverse()`.
+- [ ] Laboratório 64 (Funções) — resolvido com pelo menos 3 funções, `main()` só orquestrando.
+- [ ] Laboratório 65 (Debugging) — resolvido com o table trace documentado antes da correção.
+- [ ] Laboratório 66 (Busca) — resolvido com linear e binária, comparações contadas nas duas.
+- [ ] Laboratório 67 (Ordenação) — resolvido com bubble sort e selection sort, trocas narradas.
+- [ ] Laboratório 68 (Desafio final) — resolvido reaproveitando as funções dos laboratórios 66-67.
 - [ ] Publicado no GitHub com README.

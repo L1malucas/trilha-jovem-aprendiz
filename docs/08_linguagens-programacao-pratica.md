@@ -99,6 +99,80 @@ comando de compilação, o comando de execução e a saída do programa, e inclu
 texto copiado do terminal) no `respostas.md`. Se você usa Mac/Linux, documente o mesmo processo
 no seu sistema, indicando isso claramente no `respostas.md`.
 
+## Laboratórios
+
+### Laboratório 77 — Variáveis
+
+Escreva um programa que declare pelo menos 5 variáveis, uma de cada tipo básico (`int`, `double`,
+`char`, `bool`, `std::string`), atribua um valor a cada uma e imprima todas com `std::cout`.
+**Antes de compilar**, escreva no `respostas.md` qual saída você espera, linha por linha — só
+depois compile e rode, comparando com o que você previu. Se algo divergir do que você esperava,
+explique por quê antes de seguir.
+
+### Laboratório 78 — Tipos
+
+1. Escreva um programa que declare dois `int` (ex: `7` e `2`), divida um pelo outro e imprima o
+   resultado. Antes de rodar, preveja a saída — a maioria de quem está começando espera `3.5` e se
+   surpreende com o resultado real. Explique, com suas palavras, por que a divisão de dois `int`
+   não produz um resultado decimal.
+2. Corrija o programa acima convertendo (`static_cast<double>(...)`, ou uma conversão implícita
+   colocando um `.0` num dos valores) pra obter o resultado decimal correto.
+
+### Laboratório 79 — Operadores
+
+Dada a expressão `10 + 2 * 3 - 4 / 2`, calcule o resultado **na mão**, escrevendo no
+`respostas.md` a ordem em que você aplicou cada operador (lembrando da precedência: multiplicação
+e divisão antes de soma e subtração). Só depois escreva um programa que imprime o resultado dessa
+expressão e confira se bateu com sua conta manual.
+
+### Laboratório 80 — Funções
+
+1. Escreva uma função `int somar(int a, int b)` que recebe dois parâmetros e retorna a soma,
+   chamando-a a partir de `main()`.
+2. Escreva uma função recursiva `int fatorial(int n)` que calcula o fatorial de `n`. No
+   `respostas.md`, narre o que acontece na pilha de chamadas pra `fatorial(4)` — cada chamada
+   empilhada até o caso base, depois cada retorno desempilhando e multiplicando.
+
+### Laboratório 81 — Arrays
+
+Sem usar nenhum método pronto da biblioteca padrão (nada de `std::max_element`,
+`std::accumulate`, etc. — mesma regra já usada no módulo 09), escreva um programa que, dado um
+array de 10 inteiros:
+1. Percorra e imprima todos os elementos.
+2. Some todos os elementos e imprima o total.
+3. Encontre e imprima o maior elemento.
+
+### Laboratório 82 — Ponteiros
+
+1. Escreva uma função `void trocar(int* a, int* b)` que troca o valor de duas variáveis usando
+   ponteiros (o clássico `swap` manual), e chame-a a partir de `main()` provando que os valores
+   trocaram de fato.
+2. Declare uma variável `int x = 10;`, imprima o **endereço** dela com `&x`, depois declare um
+   ponteiro `int* p = &x;` e imprima o **valor apontado** por ele com `*p` — confirme que
+   `*p` é igual a `x`.
+
+### Laboratório 83 — Compilação
+
+1. Compile um programa com um erro proposital (ex: uma variável não declarada usada em
+   `std::cout`) usando a flag de avisos: `g++ -Wall arquivo.cpp -o arquivo.exe`. Cole no
+   `respostas.md` a mensagem de aviso/erro exibida, e explique o que ela está dizendo.
+2. Usando um programa simples já pronto (ex: o do Laboratório 79), gere o Assembly correspondente
+   com `g++ -S arquivo.cpp -o arquivo.s` (a mesma flag já usada no módulo 05) e identifique, no
+   arquivo `.s` gerado, pelo menos uma instrução reconhecível (`mov`, `add`, `sub`).
+
+### Laboratório 84 — Debugging
+
+Escreva um programa pequeno com um bug proposital (ex: um loop `for` com a condição errada, que
+roda uma vez a menos ou a mais do que deveria — um "off-by-one"). Usando o debugger integrado do
+VSCode:
+1. Coloque um breakpoint na linha do loop.
+2. Rode em modo debug e use "Step Over"/"Step Into" pra avançar linha por linha.
+3. Inspecione o valor da variável de controle do loop a cada passo, até identificar exatamente em
+   qual iteração o comportamento diverge do esperado.
+
+No `respostas.md`, descreva o bug encontrado, em qual iteração ele ficou evidente, e a correção
+aplicada.
+
 ## Critérios de entrega
 
 - Todo o conteúdo publicado em um repositório no GitHub.
@@ -116,4 +190,12 @@ no seu sistema, indicando isso claramente no `respostas.md`.
 - [ ] Exercício 6 (soma com `for` e leitura com `while`) resolvido, os dois programas.
 - [ ] Exercício 7 (setup no Windows/Mac/Linux documentado) resolvido, com print ou saída do
       terminal.
+- [ ] Laboratório 77 (variáveis) resolvido, com a previsão de saída registrada antes de compilar.
+- [ ] Laboratório 78 (tipos) resolvido, com a divisão inteira explicada e corrigida.
+- [ ] Laboratório 79 (operadores) resolvido, com a conta manual de precedência registrada.
+- [ ] Laboratório 80 (funções) resolvido, com a pilha de chamadas da recursão narrada.
+- [ ] Laboratório 81 (arrays) resolvido, sem métodos prontos da biblioteca padrão.
+- [ ] Laboratório 82 (ponteiros) resolvido, com o `swap` manual e o endereço/valor apontado.
+- [ ] Laboratório 83 (compilação) resolvido, com o aviso do `-Wall` explicado e o Assembly gerado.
+- [ ] Laboratório 84 (debugging) resolvido, com o bug e a correção descritos.
 - [ ] Publicado no GitHub com README explicando como compilar e rodar.
