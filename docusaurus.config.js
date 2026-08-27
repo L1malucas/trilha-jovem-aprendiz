@@ -38,6 +38,29 @@ const config = {
     locales: ['pt-BR'],
   },
 
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
+      ({
+        // Indexa os módulos (docs) — o blog está desativado neste site.
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        docsRouteBasePath: '/',
+        // Busca por palavra parcial: digitar "algorit" já encontra "algoritmo".
+        removeDefaultStopWordFilter: true,
+        removeDefaultStemmer: true,
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 12,
+        searchResultContextMaxLength: 60,
+        language: ['pt', 'en'],
+        hashed: true,
+        searchBarShortcutHint: false,
+      }),
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -74,6 +97,10 @@ const config = {
           {
             href: `https://github.com/${GITHUB_USER}/${REPO_NAME}`,
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            type: 'search',
             position: 'right',
           },
         ],
