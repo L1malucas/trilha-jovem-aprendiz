@@ -6,6 +6,14 @@
 > **Pré-requisitos:** Módulo 03 (Sistemas de Numeração).
 > **Tempo de referência:** 5 a 7 horas.
 > **Prática correspondente:** [04_circuitos-digitais-pratica.md](04_circuitos-digitais-pratica.md)
+> **Ferramenta de estudo:** [Logisim](https://logisim.app/) — veja o [guia do Logisim](04_logisim-guia.md).
+
+## Estudando com o Logisim
+
+Este módulo foi feito para ser estudado **montando** os circuitos. Ao longo da teoria você vai
+encontrar caixas **🔬 No Logisim** com mini-experimentos. Abra o [logisim.app](https://logisim.app/)
+(roda no navegador, sem instalar) e use o [guia do Logisim](04_logisim-guia.md) como referência.
+Os circuitos de exemplo podem ser baixados e abertos com **File > Open**.
 
 ---
 
@@ -177,6 +185,8 @@ uma porta de 2 entradas tem 4 linhas; um circuito de 3 entradas, 8 linhas, e ass
 ferramenta universal pra especificar (ou verificar) o comportamento de qualquer circuito
 combinacional, por mais complexo que seja.
 
+> 🔬 **No Logisim:** baixe [`portas_basicas.circ`](pathname:///trilha-jovem-aprendiz/logisim/04/examples/portas_basicas.circ), clique nas entradas A e B com a ferramenta Poke e preencha à mão a tabela de cada porta. Depois confira em **Window > Combinational Analysis**.
+
 ## 16. Expressões booleanas
 
 Em vez de desenhar portas ou montar tabelas, dá pra escrever o comportamento de um circuito como
@@ -213,6 +223,8 @@ formaliza: `NOT(A AND B) = (NOT A) OR (NOT B)`.
 expressão inteira de uma vez. Resposta: `(NOT chove) AND (NOT venta)` — "não chove **e** não
 venta".
 
+> 🔬 **No Logisim:** monte `NOT (A AND B)` e, ao lado, `(NOT A) OR (NOT B)` com as mesmas entradas. Teste as 4 combinações e confirme que as duas saídas são sempre iguais (você faz isso no Lab 37).
+
 ## 19. Simplificação de expressões booleanas
 
 Simplificar uma expressão booleana significa achar uma equivalente com menos portas, usando as
@@ -236,6 +248,8 @@ apenas NOR). Essa propriedade é chamada de completude funcional. Na prática, c
 fabricados majoritariamente com portas NAND, e as demais portas são montadas combinando NANDs —
 é mais barato fabricar um único tipo de componente em escala do que vários tipos diferentes.
 
+> 🔬 **No Logisim:** refaça NOT, AND e OR usando **só portas NAND**. Confirme cada uma com a tabela da Combinational Analysis.
+
 ## 21. Circuitos combinacionais
 
 Um circuito é **combinacional** quando a saída depende **apenas** dos valores atuais das
@@ -252,6 +266,8 @@ remoto universal, qual aparelho (TV, som, ar-condicionado) vai receber o comando
 Um MUX de 2 entradas usa 1 bit de controle (`0` seleciona a entrada A, `1` seleciona a entrada B);
 um MUX de 4 entradas precisa de 2 bits de controle (`2² = 4`, a mesma relação de potências de 2
 do módulo 03).
+
+> 🔬 **No Logisim:** use o componente **Multiplexer** (biblioteca Plexers) e depois construa o mesmo MUX 2x1 só com portas; compare as saídas (Lab 39).
 
 ### 23. Demultiplexadores
 
@@ -273,6 +289,8 @@ Um **decodificador** (decoder) faz o oposto: recebe um número binário na entra
 que, no módulo 05, vai permitir que um endereço de memória binário "aponte" pra uma única posição
 específica dentro de milhões — o decodificador de endereço é essa mesma peça, só que em escala
 muito maior.
+
+> 🔬 **No Logisim:** use o **Decoder** (Plexers) com 2 bits de seleção e ligue LEDs nas saídas: só uma acende por vez.
 
 ### 26. Comparadores
 
@@ -309,6 +327,8 @@ primeiro resolva `B OR C` pra cada linha, depois combine o resultado com `A` via
 só dá `1` quando `A = 1` **e** pelo menos um entre `B` ou `C` for `1` (linhas `1,0,1`; `1,1,0`;
 `1,1,1`).
 
+> 🔬 **No Logisim:** abra [`meio_somador.circ`](pathname:///trilha-jovem-aprendiz/logisim/04/examples/meio_somador.circ), teste as 4 combinações e identifique o XOR (soma) e o AND (carry).
+
 ### 28. Somador completo
 
 O meio-somador tem uma limitação: ele só soma dois bits isolados, sem considerar um vai-um que
@@ -316,6 +336,8 @@ possa ter vindo de uma soma anterior. Um **somador completo** (full adder) resol
 três entradas (`A`, `B`, e `Carry-in` — o vai-um vindo da posição anterior) e produz duas saídas
 (`Soma` e `Carry-out` — o vai-um pra próxima posição). Ele pode ser montado com **dois**
 meio-somadores em série mais uma porta OR combinando os dois carries.
+
+> 🔬 **No Logisim:** abra [`somador_completo.circ`](pathname:///trilha-jovem-aprendiz/logisim/04/examples/somador_completo.circ) e siga o sinal de `CIN` até `COUT`. Note que são dois meios-somadores e uma porta OR.
 
 ### 29. Somador binário
 
@@ -337,6 +359,8 @@ Lendo as somas da posição 3 até a 0: `1000` = 8. Confere: `5 + 3 = 8`. Esse e
 carry de uma posição "esperando" a posição anterior terminar antes de propagar — é chamado de
 somador de **carry propagado** (ripple carry), e é literalmente o mesmo mecanismo que você já fez
 na mão, no módulo 03, ao somar binário coluna por coluna da direita pra esquerda.
+
+> 🔬 **No Logisim:** encadeie 4 somadores completos (crie cada um como sub-circuito em **Project > Add Circuit**) ligando `COUT` de um no `CIN` do próximo. Teste `0101 + 0011` (Lab 41).
 
 ## 30. Circuitos sequenciais
 
@@ -395,6 +419,8 @@ instante, de forma consistente.
 - **Latch (SR latch)**: o circuito de memória mais simples — guarda 1 bit, e muda de estado
   sempre que as entradas de Set/Reset mudam (sem esperar um clock).
 
+> 🔬 **No Logisim:** monte um latch SR com duas portas NOR realimentadas e observe o estado que se mantém quando S=R=0.
+
 ### 33. Flip-Flops
 
 - **Flip-flop (ex: tipo D)**: uma evolução do latch que só muda de estado em sincronia com o
@@ -428,6 +454,8 @@ guardado no flip-flop? Resposta: nada — o flip-flop mantém o valor `1` do úl
 próximo pulso de clock (t5), ignorando qualquer mudança de `D` nesse meio tempo. O latch, por
 outro lado, mudaria para `0` imediatamente.
 
+> 🔬 **No Logisim:** use o componente **D Flip-Flop** com um **Clock**. Mude `D` com a Poke e observe que `Q` só muda na borda de subida (Ex. 6).
+
 ### 34. Registradores
 
 Um **registrador** é simplesmente um grupo de flip-flops tipo D lado a lado, todos compartilhando
@@ -437,6 +465,8 @@ operando em paralelo. É a "memória mais rápida" que você já viu citada na h
 cada flip-flop só muda no pulso de clock, e todos compartilham o mesmo clock, o registrador
 inteiro troca de valor "de uma vez", de forma consistente — exatamente o comportamento que a
 tabela do item 33 demonstrou pra um único bit.
+
+> 🔬 **No Logisim:** use o componente **Register** (Memory) de 4 bits e ligue a um pin de 4 bits. Compare com 4 flip-flops D lado a lado (Lab 42).
 
 ### 35. Contadores
 
@@ -449,6 +479,8 @@ módulo 05: ele literalmente conta, pulso a pulso, qual é a próxima instruçã
 que valor binário ele para? Resposta: `101` (5 em decimal) — cada pulso soma 1, e `000 → 001 →
 010 → 011 → 100 → 101` são exatamente 5 incrementos.
 
+> 🔬 **No Logisim:** use o **Counter** (Memory) de 3 bits, ative **Simulate > Ticks Enabled** e acompanhe `000 → 111 → 000` (Lab 43).
+
 ### 36. Máquinas de estados
 
 Uma **máquina de estados** (finite state machine, FSM) generaliza a ideia de "estado interno" que
@@ -459,6 +491,8 @@ digitado dispara uma transição: ou avança pro próximo estado (se o dígito b
 volta pro estado `Inicial` (se erra). Máquinas de estados são a ferramenta padrão pra projetar
 qualquer circuito sequencial mais complexo do que um contador simples — de semáforos a
 controladores de elevador a protocolos de rede.
+
+> 🔬 **No Logisim:** implemente a trava de senha do Exercício 7 com flip-flops e portas; use o clock manual (**Ctrl+K**) para dar um passo por vez (Lab 44).
 
 ## Erros comuns
 
@@ -514,3 +548,4 @@ Você já viu estes avisos ao longo do módulo — aqui vai só a revisão rápi
       não latches.
 - [ ] Explico como um contador e uma máquina de estados se relacionam com o Program Counter e a
       trava de senha, respectivamente.
+- [ ] Montei e testei no Logisim pelo menos: portas básicas, meio somador, somador completo e um flip-flop D.

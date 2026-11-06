@@ -16,6 +16,10 @@ Site publicado: https://l1malucas.github.io/trilha-jovem-aprendiz/
   gerado a partir de `trila-jovens-aprendiz/` pelo script `scripts/build_docs.py`.
 - `scripts/build_docs.py` — regenera `docs/` a partir de `trila-jovens-aprendiz/` depois de
   qualquer edição de conteúdo.
+- `scripts/gen_circ.py` — gera os arquivos do Logisim (`.circ`) do módulo 04: esqueletos e
+  exemplos em `static/logisim/04/` (publicados) e gabaritos em `gabaritos/04/` (não publicados).
+  Os arquivos são gerados por script e devem ser abertos no [logisim.app](https://logisim.app/)
+  para conferir após qualquer alteração no gerador.
 
 ## Desenvolvimento local
 

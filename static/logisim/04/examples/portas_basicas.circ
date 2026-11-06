@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.2" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0"/>
+<lib desc="#Gates" name="1"/>
+<lib desc="#Plexers" name="2"/>
+<lib desc="#Arithmetic" name="3"/>
+<lib desc="#Memory" name="4"/>
+<lib desc="#I/O" name="5"/>
+<lib desc="#Base" name="6"/>
+<main name="main"/>
+<options>
+  <a name="gateUndefined" val="ignore"/>
+  <a name="simlimit" val="1000"/>
+  <a name="simrand" val="0"/>
+</options>
+<circuit name="main">
+  <a name="circuit" val="main"/>
+  <comp lib="6" loc="(200,20)" name="Text">
+    <a name="text" val="Portas basicas: clique nos pins de entrada (A e B) com a Poke Tool"/>
+  </comp>
+  <comp lib="0" loc="(60,70)" name="Pin">
+    <a name="label" val="A_AND"/>
+  </comp>
+  <comp lib="0" loc="(60,90)" name="Pin">
+    <a name="label" val="B_AND"/>
+  </comp>
+  <comp lib="1" loc="(150,80)" name="AND Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,70)" to="(120,70)"/>
+  <wire from="(60,90)" to="(120,90)"/>
+  <wire from="(150,80)" to="(220,80)"/>
+  <comp lib="0" loc="(220,80)" name="Pin">
+    <a name="label" val="AND"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+  <comp lib="0" loc="(60,130)" name="Pin">
+    <a name="label" val="A_OR"/>
+  </comp>
+  <comp lib="0" loc="(60,150)" name="Pin">
+    <a name="label" val="B_OR"/>
+  </comp>
+  <comp lib="1" loc="(150,140)" name="OR Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,130)" to="(120,130)"/>
+  <wire from="(60,150)" to="(120,150)"/>
+  <wire from="(150,140)" to="(220,140)"/>
+  <comp lib="0" loc="(220,140)" name="Pin">
+    <a name="label" val="OR"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+  <comp lib="0" loc="(60,190)" name="Pin">
+    <a name="label" val="A_XOR"/>
+  </comp>
+  <comp lib="0" loc="(60,210)" name="Pin">
+    <a name="label" val="B_XOR"/>
+  </comp>
+  <comp lib="1" loc="(150,200)" name="XOR Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,190)" to="(120,190)"/>
+  <wire from="(60,210)" to="(120,210)"/>
+  <wire from="(150,200)" to="(220,200)"/>
+  <comp lib="0" loc="(220,200)" name="Pin">
+    <a name="label" val="XOR"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+  <comp lib="0" loc="(60,250)" name="Pin">
+    <a name="label" val="A_NAND"/>
+  </comp>
+  <comp lib="0" loc="(60,270)" name="Pin">
+    <a name="label" val="B_NAND"/>
+  </comp>
+  <comp lib="1" loc="(150,260)" name="NAND Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,250)" to="(120,250)"/>
+  <wire from="(60,270)" to="(120,270)"/>
+  <wire from="(150,260)" to="(220,260)"/>
+  <comp lib="0" loc="(220,260)" name="Pin">
+    <a name="label" val="NAND"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+  <comp lib="0" loc="(60,310)" name="Pin">
+    <a name="label" val="A_NOR"/>
+  </comp>
+  <comp lib="0" loc="(60,330)" name="Pin">
+    <a name="label" val="B_NOR"/>
+  </comp>
+  <comp lib="1" loc="(150,320)" name="NOR Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,310)" to="(120,310)"/>
+  <wire from="(60,330)" to="(120,330)"/>
+  <wire from="(150,320)" to="(220,320)"/>
+  <comp lib="0" loc="(220,320)" name="Pin">
+    <a name="label" val="NOR"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+  <comp lib="0" loc="(60,370)" name="Pin">
+    <a name="label" val="A_XNOR"/>
+  </comp>
+  <comp lib="0" loc="(60,390)" name="Pin">
+    <a name="label" val="B_XNOR"/>
+  </comp>
+  <comp lib="1" loc="(150,380)" name="XNOR Gate">
+    <a name="size" val="30"/>
+  </comp>
+  <wire from="(60,370)" to="(120,370)"/>
+  <wire from="(60,390)" to="(120,390)"/>
+  <wire from="(150,380)" to="(220,380)"/>
+  <comp lib="0" loc="(220,380)" name="Pin">
+    <a name="label" val="XNOR"/>
+    <a name="facing" val="west"/>
+    <a name="output" val="true"/>
+  </comp>
+</circuit>
+</project>

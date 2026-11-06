@@ -38,7 +38,7 @@ for path in sorted(SRC.glob("*.md")):
         count += 1
         continue
 
-    m = re.match(r"^(\d+)_([a-z0-9-]+)-(teoria|pratica)$", name)
+    m = re.match(r"^(\d+)_([a-z0-9-]+)-(teoria|pratica|guia)$", name)
     if not m:
         print(f"SKIP (no match): {name}")
         continue
@@ -51,6 +51,9 @@ for path in sorted(SRC.glob("*.md")):
     if kind == "teoria":
         title = base_title
         position = num * 10
+    elif kind == "guia":
+        title = f"{base_title} — Guia do Logisim"
+        position = num * 10 + 2
     else:
         title = f"{base_title} — Prática"
         position = num * 10 + 1
